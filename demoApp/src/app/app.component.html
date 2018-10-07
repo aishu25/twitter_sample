@@ -1,0 +1,27 @@
+<div id="container">
+  <div id="left">
+    <h1 id="header">{{ name }}</h1>
+    <img src="{{ image }}" alt="display image">
+    <hr align="left" width="300px">
+    <div id="tweetcount">
+      <p >{{ tweetsData }} tweets</p>
+      <p>{{ followers }} followers</p>
+      <p>{{ following }} following</p>
+    </div>
+  </div>
+  <form name="myForm">
+    <textarea placeholder="What's happeing?" rows="8" cols="50" type="text" name="postData" [(ngModel)]= "postData"></textarea>
+    <button type="submit" (click)="newPost()">Post</button>
+  </form>
+  <h1 id="recent">Recent Tweets</h1>
+  <div id="right">
+      <div *ngFor="let tweet of tweets">
+        <div id="innerright">
+          <h4>{{ tweet.name }}</h4>
+          <p>@{{ tweet.handle }}</p>
+          <p>{{ tweet.date }}</p>
+        </div>
+        <p id="tweet">{{ tweet.tweet }}</p>
+      </div>
+  </div>
+</div> 

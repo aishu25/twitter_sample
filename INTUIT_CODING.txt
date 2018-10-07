@@ -1,0 +1,177 @@
+******************
+APP.COMPONENT.CSS
+******************
+#container{
+	font-family: Comic Sans MS, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px black solid;
+}
+img{
+  	width: 200px;
+  	height: 200px;
+  	border-radius:50%;
+  	padding:10px;
+}
+#header {
+  float: right;
+  width: 60px;
+  margin-top: 60px;
+}
+#right{
+	display: flex;
+    flex-direction: column-reverse;
+    margin-left: 500px;
+}
+#right h4{
+	display: inline-block;
+    vertical-align: top;
+}
+#innerright p{
+	display: inline-block;
+    vertical-align: top;
+	line-height: 0px;
+	margin-top: 33px;
+	margin-left: 15px;
+}
+#tweet{
+	width: 350px;
+    word-break: break-word;
+}
+#left{
+	display: inline-block;
+}
+#tweetcount{
+	display: flex;
+	flex-direction:row;
+}
+#tweetcount p {
+	width: 90px;
+	font-size: 10px;
+}
+#recent{
+	margin-left: 500px;
+}
+form{
+    margin-left: 500px;
+    margin-top: -200px;
+}
+textarea, button{
+    display:inline-block;
+    vertical-align: top;
+}
+textarea{
+	word-wrap: break-word;
+}
+button {
+    background-color: #D4E6F1;
+    color: black;
+    margin: 5px;
+    /* border: black 1px; */
+    cursor: pointer;
+    font-size: 13px;
+    padding: 15px;
+    border-radius: 12px;
+    width: 22%;
+}
+button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
+}
+******************
+APP.COMPONENT.HTML
+******************
+<div id="container">
+  <div id="left">
+    <h1 id="header">{{ name }}</h1>
+    <img src="{{ image }}" alt="display image">
+    <hr align="left" width="300px">
+    <div id="tweetcount">
+      <p >{{ tweetsData }} tweets</p>
+      <p>{{ followers }} followers</p>
+      <p>{{ following }} following</p>
+    </div>
+  </div>
+  <form name="myForm">
+    <textarea placeholder="What's happeing?" rows="8" cols="50" type="text" name="postData" [(ngModel)]= "postData"></textarea>
+    <button type="submit" (click)="newPost()">Post</button>
+  </form>
+  <h1 id="recent">Recent Tweets</h1>
+  <div id="right">
+      <div *ngFor="let tweet of tweets">
+        <div id="innerright">
+          <h4>{{ tweet.name }}</h4>
+          <p>@{{ tweet.handle }}</p>
+          <p>{{ tweet.date }}</p>
+        </div>
+        <p id="tweet">{{ tweet.tweet }}</p>
+      </div>
+  </div>
+</div> 
+
+***********
+DUMMY.HTML
+***********
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dummy</title>
+	<link rel="stylesheet" type="text/css" href="dummy.css">
+</head>
+<body>
+	<div id="wapper">
+		<div id="top">
+			<div id="header">
+				<img src="ninja.png" alt="ninja">
+				<h1>John<span style = "display: block;">smith</span></h1>
+			</div>
+			<hr align="left" width="250px">
+			<div id="footer">
+				<p>tweets</p>
+				<p>followers</p>
+				<p>following</p>
+			</div>
+		</div>
+		<div id="right">
+			<form>
+				<textarea placeholder="What's happeing?" rows="8" cols="50" type="text"></textarea>
+				<button type="submit">Post</button>
+			</form>
+			<div id="tweetdata">
+				<h4>name</h4>
+        		<p>handle</p>
+        		<p>date</p>
+        		<p>tweet</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+***********
+DUMMY.CSS
+***********
+#wapper{
+    font-family: Comic Sans MS, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 10px;
+    border: 1px black solid;
+}
+#header img {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+#top{
+  display: inline-block;
+}
+#footer{
+    display: flex;
+    flex-direction:row;
+}
+#right{
+    display: inline-block;
+}
+textarea, button{
+    display:inline-block;
+    vertical-align: top;
+}
