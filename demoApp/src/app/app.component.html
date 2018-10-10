@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src=""></script> -->
 <div id="container">
   <div id="left">
     <h1 id="header">{{ name }}</h1>
@@ -11,7 +13,7 @@
   </div>
   <form name="myForm">
     <textarea placeholder="What's happeing?" rows="8" cols="50" type="text" name="postData" [(ngModel)]= "postData"></textarea>
-    <button type="submit" (click)="newPost()">Post</button>
+    <button  id="myBtn" type="submit" (click)="newPost()"><span id="tooltiptext">tooltip text</span><img id="arrow" src="assets/images/arrow.png" alt="Post">Post</button>
   </form>
   <h1 id="recent">Recent Tweets</h1>
   <div id="right">

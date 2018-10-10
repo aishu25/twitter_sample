@@ -33,6 +33,6 @@ export class HttpService {
   addPost(data){
   	let url = this.URL + "/feed";
   	return this._http.post(url, 
-  		{"name":"Aish","handle":"aishu","date": this.dateval,"tweet": data});
+  		{"name":"John Smith","handle":"johnsmith","date": this.dateval,"tweet": data});
   }
 }
